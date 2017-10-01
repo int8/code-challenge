@@ -10,7 +10,7 @@ def compose_args_dict(features = ['feature_a', 'feature_b']):
     # I assume all entries of SUM_INTERVALS are of a form (-k,0)
     # this is tiny simplification, if second element of a tuple were supposed to be greater than zero
     # additional paramater to single_bin_sum_feature would do the trick
-    assert np.all([ interval[0] < 0 for interval in SUM_INTERVALS])
+    assert np.all([ interval[0] < 0 and interval[1] == 0 for interval in SUM_INTERVALS])
 
     d = dict()
     for entry in SUM_INTERVALS:
